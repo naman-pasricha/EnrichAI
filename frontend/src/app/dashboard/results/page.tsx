@@ -18,15 +18,21 @@ export default function ResultsPage() {
       if (!token) return;
       try {
         // Fetch jobs first
-        const jobsRes = await axios.get('http://localhost:8000/api/v1/jobs/', {
-          headers: { Authorization: `Bearer ${token}` }
+        const jobsRes = await axios.get('https://poor-shrimps-appear.loca.lt/api/v1/jobs/', {
+          headers: { 
+            Authorization: `Bearer ${token}`,
+            'Bypass-Tunnel-Reminder': 'true'
+          }
         });
         
         if (jobsRes.data.length > 0) {
           const latestJobId = jobsRes.data[0].id;
           // Fetch leads for the latest job
-          const leadsRes = await axios.get(`http://localhost:8000/api/v1/jobs/${latestJobId}/leads`, {
-            headers: { Authorization: `Bearer ${token}` }
+          const leadsRes = await axios.get(`https://poor-shrimps-appear.loca.lt/api/v1/jobs/${latestJobId}/leads`, {
+            headers: { 
+              Authorization: `Bearer ${token}`,
+              'Bypass-Tunnel-Reminder': 'true'
+            }
           });
           setData(leadsRes.data);
         }

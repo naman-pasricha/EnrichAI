@@ -21,10 +21,11 @@ export default function DashboardPage() {
       formData.append('file', file)
       const token = useAuthStore.getState().token
       
-      await axios.post('http://localhost:8000/api/v1/jobs/', formData, { 
+      await axios.post('https://poor-shrimps-appear.loca.lt/api/v1/jobs/', formData, { 
         headers: { 
           'Content-Type': 'multipart/form-data', 
-          Authorization: `Bearer ${token}` 
+          Authorization: `Bearer ${token}`,
+          'Bypass-Tunnel-Reminder': 'true'
         } 
       })
       
