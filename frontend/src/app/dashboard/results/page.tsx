@@ -15,12 +15,10 @@ export default function ResultsPage() {
 
   useEffect(() => {
     async function fetchResults() {
-      if (!token) return;
       try {
         // Fetch jobs first
         const jobsRes = await axios.get('https://poor-shrimps-appear.loca.lt/api/v1/jobs/', {
           headers: { 
-            Authorization: `Bearer ${token}`,
             'Bypass-Tunnel-Reminder': 'true'
           }
         });
@@ -30,7 +28,6 @@ export default function ResultsPage() {
           // Fetch leads for the latest job
           const leadsRes = await axios.get(`https://poor-shrimps-appear.loca.lt/api/v1/jobs/${latestJobId}/leads`, {
             headers: { 
-              Authorization: `Bearer ${token}`,
               'Bypass-Tunnel-Reminder': 'true'
             }
           });
@@ -48,7 +45,7 @@ export default function ResultsPage() {
     // Poll every 5 seconds to get updates
     const interval = setInterval(fetchResults, 5000);
     return () => clearInterval(interval);
-  }, [token])
+  }, [])
 
   return (
     <div className="space-y-6">

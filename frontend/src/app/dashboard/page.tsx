@@ -19,12 +19,9 @@ export default function DashboardPage() {
     try {
       const formData = new FormData()
       formData.append('file', file)
-      const token = useAuthStore.getState().token
-      
       await axios.post('https://poor-shrimps-appear.loca.lt/api/v1/jobs/', formData, { 
         headers: { 
           'Content-Type': 'multipart/form-data', 
-          Authorization: `Bearer ${token}`,
           'Bypass-Tunnel-Reminder': 'true'
         } 
       })
