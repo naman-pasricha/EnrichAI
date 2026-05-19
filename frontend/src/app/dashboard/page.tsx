@@ -52,7 +52,7 @@ export default function DashboardPage() {
               <h3 className="font-medium text-slate-500 text-sm">Credits Available</h3>
               <Zap className="h-4 w-4 text-blue-600" />
             </div>
-            <div className="text-3xl font-bold text-slate-900">{user?.credits || 0}</div>
+            <div className="text-3xl font-bold text-slate-900">{user?.credits?.toLocaleString() || "Unlimited"}</div>
           </CardContent>
         </Card>
         <Card>
