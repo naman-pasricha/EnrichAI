@@ -1,0 +1,43 @@
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build
+frontend/.DS_Store
+frontend/*.pem
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.env*.local
+frontend/.vercel
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# Backend
+backend/venv/
+backend/env/
+backend/ENV/
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+backend/instance/
+backend/.webassets-cache
+backend/.scrapy
+backend/docs/_build/
+backend/target/
+backend/.ipynb_checkpoints
+backend/profile_default/
+backend/ipython_config.py
+backend/celerybeat-schedule
+backend/*.db
+backend/*.sqlite3
+
+# General
+.DS_Store
+.vscode/
+.idea/
+*.log
+.env
